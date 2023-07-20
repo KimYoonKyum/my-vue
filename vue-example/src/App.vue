@@ -1,42 +1,28 @@
 <template>
-  <form v-on:submit.prevent="onSubmit">
-    <div>
-      <label for="username">id: </label>
-      <input id="username" type="text" v-model="username">
-    </div>
-    <div>
-      <label for="password">pw: </label>
-      <input id="password" type="text" v-model="password">
-    </div>
-    <button type="submit">login</button>
-  </form>
+  <search-form v-on:setResult="result"/>
+  <search-result-list v-bind:result="list"/>
 </template>
 
 <script>
-import axios from "axios";
+import SearchForm from "@/components/SearchForm";
+import SearchResultList from "@/components/SearchResultList.vue";
 
 export default {
   name: 'App',
+  components: {
+    'search-form': SearchForm,
+    'search-result-list': SearchResultList
+  },
   data: function() {
     return {
-      username: '',
-      password: ''
+      list: []
     }
   },
+  computed: {
+  },
   methods: {
-    onSubmit: function() {
-      const url = 'https://jsonplaceholder.typicode.com/users'
-      const data = {
-        username: this.username,
-        password: this.password
-      }
-      axios.post(url,data)
-          .then((res)=>{
-            console.log(res)
-          })
-          .catch((err)=>{
-            console.log(err)
-          })
+    result: function(list) {
+      this.list = list
     }
   }
 }
