@@ -1,6 +1,6 @@
 <template>
   <div id="list">
-    <div v-for="item in result" v-bind:key="item.idx">
+    <div v-for="item in propsResult" v-bind:key="item.idx">
       {{ item.name }}
     </div>
   </div>
@@ -9,7 +9,7 @@
 <script>
 export default {
   name: "SearchResultList.vue",
-  props: ['result'],
+  props: ['propsResult'],
   data: function() {
   },
   computed: {

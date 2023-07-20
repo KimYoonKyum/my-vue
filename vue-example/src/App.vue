@@ -1,6 +1,6 @@
 <template>
   <search-form v-on:setResult="result"/>
-  <search-result-list v-bind:result="list"/>
+  <search-result-list v-bind:propsResult="list"/>
 </template>
 
 <script>

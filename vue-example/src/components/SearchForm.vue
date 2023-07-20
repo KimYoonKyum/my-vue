@@ -34,6 +34,9 @@ export default {
         {idx:1,name:'aaa'},
         {idx:2,name:'tom'},
         {idx:3,name:'back'},
+        {idx:4,name:'go'},
+        {idx:5,name:'bbb'},
+        {idx:6,name:'ccc'},
       ]
       this.$emit('setResult', originList.filter((item)=>item.name === this.searchOptions.searchName))
     }
